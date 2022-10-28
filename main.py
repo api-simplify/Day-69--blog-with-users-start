@@ -79,7 +79,7 @@ class Comments(db.Model):
     comment = db.Column(db.Text, nullable=False)
 
 
-db.create_all()
+# db.create_all()
 # def admin_only(func):
 #     def wrapper():
 #         if current_user.is_admin:
