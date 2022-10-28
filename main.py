@@ -27,7 +27,7 @@ Bootstrap(app)
 
 ##CONNECT TO DB
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///blog.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 # app.secret_key = ':dFU3ivDT1tA)mGG1a'
@@ -80,7 +80,7 @@ class Comments(db.Model):
     comment = db.Column(db.Text, nullable=False)
 
 
-# db.create_all()
+db.create_all()
 # def admin_only(func):
 #     def wrapper():
 #         if current_user.is_admin:
